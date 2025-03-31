@@ -10,17 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const spineAnimationSelect = document.getElementById('spine-animation-select');
     const spinePlayerElement = document.getElementById('spine-player-element');
     
-    // 选项卡相关元素
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
     let spinePlayer = null;
 
     // 添加示例动画选项
     const exampleOptions = [
         { name: "Spineboy (官方示例)", skeleton: "https://esotericsoftware.com/files/examples/4.2/spineboy/export/spineboy-pro.json", atlas: "https://esotericsoftware.com/files/examples/4.2/spineboy/export/spineboy-pma.atlas" },
-        { name: "Spineboy (本地)", skeleton: "spine/spineRes/spineboy-pro.skel", atlas: "spine/spineRes/spineboy-pma.atlas" },
-        { name: "Celestial Circus (本地)", skeleton: "spine/spineRes/celestial-circus-pro.skel", atlas: "spine/spineRes/celestial-circus-pma.atlas" }
+        { name: "Raptor (本地)", skeleton: "spine/spineRes/raptor-pro.json", atlas: "spine/spineRes/raptor-pma.atlas" },
+        { name: "Celestial Circus (本地)", skeleton: "spine/spineRes/celestial-circus-pro.json", atlas: "spine/spineRes/celestial-circus-pma.atlas" }
     ];
 
     // 清空并重新填充动画选择下拉框
@@ -68,21 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("创建Spine播放器失败:", error);
         }
     }
-    
-    // 选项卡切换
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const tabId = this.getAttribute('data-tab');
-            
-            // 切换按钮状态
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            // 切换内容区域
-            tabContents.forEach(content => content.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
 
     // 事件监听器 - 选择预设动画
     spineAnimationSelect.addEventListener('change', function() {
