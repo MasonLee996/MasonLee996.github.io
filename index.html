@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>在线工具集合</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/spinePlayer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- 添加代码高亮库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <!-- 添加Spine Web Player -->
+    <script src="https://unpkg.com/@esotericsoftware/spine-player@4.2.*/dist/iife/spine-player.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@esotericsoftware/spine-player@4.2.*/dist/spine-player.css">
 </head>
 <body>
     <header>
@@ -19,6 +23,7 @@
                 <li><a href="#" data-tool="image-resizer">图片尺寸调整</a></li>
                 <li><a href="#" data-tool="json-formatter">JSON格式化</a></li>
                 <li><a href="#" data-tool="timestamp-converter">日期转时间戳</a></li>
+                <li><a href="#" data-tool="spine-player">Spine动画</a></li>
             </ul>
             <div class="burger">
                 <div class="line1"></div>
@@ -258,6 +263,35 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Spine动画播放器工具 -->
+            <div class="tool-section" id="spine-player">
+                <div class="tool-header">
+                    <h2><i class="fas fa-film"></i> Spine动画播放器</h2>
+                    <p>查看和播放Spine骨骼动画</p>
+                </div>
+                <div class="tool-content">
+                    <div class="spine-container">
+                        <div class="spine-options">
+                            <div class="option-tabs">
+                                <button class="tab-button active" data-tab="preset-tab">预设动画</button>
+                            </div>
+                            
+                            <div class="tab-content active" id="preset-tab">
+                                <div class="option-group">
+                                    <label for="spine-animation-select">选择动画:</label>
+                                    <select id="spine-animation-select">
+                                        <!-- 将由JavaScript填充 -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spine-player-container">
+                            <div id="spine-player-element"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -269,6 +303,7 @@
                 <a href="#" data-tool="image-resizer">图片尺寸调整</a>
                 <a href="#" data-tool="json-formatter">JSON格式化</a>
                 <a href="#" data-tool="timestamp-converter">日期转时间戳</a>
+                <a href="#" data-tool="spine-player">Spine动画</a>
             </div>
             <div class="social-links">
                 <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
@@ -282,5 +317,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/spinePlayer.js"></script>
 </body>
 </html>
